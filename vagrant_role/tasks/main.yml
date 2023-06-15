@@ -30,8 +30,14 @@
 - name: Install Vagrant
   command: apt install {{ destin_folder }}/{{ var_folder }}/vagrant_2.2.19_x86_64.deb 
 
-- name: Vagrant up
-  shell: | 
-    chown -R bonzi:bonzi {{ destin_folder }}/{{ var_folder }}
-    cd {{ destin_folder }}/{{ var_folder }}
-    vagrant up 
+- name: New rules
+  command: chown -R {{ user_name }}:{{ user_name }} {{ destin_folder }}/{{ var_folder }}
+
+- name: In Folder
+  command: chdir={{ destin_folder }}/{{ var_folder }} vagrant up    
+  
+# - name: Vagrant up
+#  shell: | 
+#    chown -R bonzi:bonzi {{ destin_folder }}/{{ var_folder }}
+#    cd {{ destin_folder }}/{{ var_folder }}
+#    vagrant up 

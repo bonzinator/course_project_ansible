@@ -4,3 +4,4 @@
 source_folder: ./vagrant
 destin_folder: /home/bonzi/
 var_folder: vagrant 
+user_name: bonzi
