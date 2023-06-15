@@ -1,0 +1,10 @@
+---
+- hosts: var3 
+  become: yes
+  
+  roles:
+  - { role: vagrant_role, when: ansible_system == 'Linux'}
+
+
+  
+

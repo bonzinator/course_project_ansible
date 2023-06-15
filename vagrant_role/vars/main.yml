@@ -1,0 +1,6 @@
+---
+# vars file for vagrant_role
+
+source_folder: ./vagrant
+destin_folder: /home/bonzi/
+var_folder: vagrant 
