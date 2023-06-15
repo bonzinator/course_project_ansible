@@ -1,5 +1,5 @@
 ---
-- hosts: var3 
+- hosts: localhost 
   become: yes
   
   

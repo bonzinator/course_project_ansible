@@ -1,7 +1,6 @@
 ---
 # vars file for vagrant_role
 
-source_folder: ./vagrant
-destin_folder: /home/bonzi/
-var_folder: vagrant 
-user_name: bonzi
+destin_folder: /home/dmitriy/
+var_folder: vagrant232323 
+user_name: dmitriy
