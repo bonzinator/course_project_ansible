@@ -4,7 +4,13 @@
   
   
   roles:
-  - { role: vagrant_role, when: ansible_system == 'Linux'}
+  - { role: vagrant_role, when: ansible_system == 'Linux' }
+
+- hosts: database
+  become: yes
+
+  roles:
+  - { role: mysql, when: ansible_system == 'Linux' }
 
 
   

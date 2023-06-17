@@ -1,0 +1,11 @@
+---
+
+- hosts: database
+  become: yes
+
+  roles:
+  - { role: mysql, when: ansible_system == 'Linux' }
+
+
+  
+
