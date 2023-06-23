@@ -8,9 +8,24 @@
 
 - hosts: database
   become: yes
+  vars_files:
+   - vars/mysql.yml
 
   roles:
   - { role: mysql, when: ansible_system == 'Linux' }
+
+- hosts: wordpress
+  become: yes
+  vars_files:
+   - vars/mysql.yml
+
+  roles:
+    - { role: nginx, when: ansible_system == 'Linux' }
+    - { role: php, when: ansible_system == 'Linux' }
+    - { role: wordpress, when: ansible_system == 'Linux' }
+
+
+
 
 
   

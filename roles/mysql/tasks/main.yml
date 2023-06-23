@@ -8,7 +8,6 @@
     update_cache: yes
   with_items: 
     - mysql-server
-    - mysql-client
     - python3-pymysql
 
 - name: set password for root user
@@ -39,10 +38,15 @@
     priv: '*.*:ALL'
     state: present
 
-- name: Remove the test database
-  mysql_db: 
-    name: "{{ mysql_db }}" 
-    state: absent
+- name: replace bind-address
+  lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: ^(bind-address).*
+    line: bind-address = *
+    owner: root
+    group: root
+    mode: 0644
   notify:
     - Restart MySQL
-
+  
+    

@@ -1,0 +1,5 @@
+---
+# vars file for wordpress
+
+server_name: "example.my"
+database_hostname: "10.11.10.2"
