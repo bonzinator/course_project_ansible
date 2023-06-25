@@ -1,6 +1,5 @@
 ---
 # vars file for vagrant_role
 
-destin_folder: /home/dmitriy/
-var_folder: vagrant232323 
+destin_folder: /home/dmitriy/course_project_ansible
 user_name: dmitriy

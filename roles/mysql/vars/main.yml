@@ -1,3 +1,4 @@
 ---
 # vars file for mysql
 
+mysql_priv: "wordpress.*:ALL"

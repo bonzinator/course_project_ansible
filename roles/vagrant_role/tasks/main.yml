@@ -1,8 +1,5 @@
 ---
 # tasks file for vagrant_role
-
-- name: Add folder 
-  command: mkdir {{ destin_folder }}/{{ var_folder }} 
     
 - name: Update and upgrade Ubuntu  
   apt: 
@@ -10,11 +7,6 @@
     upgrade: dist
     cache_valid_time: 3600
     force_apt_get: true 
-    
-- name: Update and upgrade Ubuntu v2
-  shell: |
-    apt update
-    apt upgrade
   
 - name: Install virtualbox
   apt:
@@ -22,18 +14,17 @@
     state: latest
 
 - name: Copy files
-  copy: src={{ item }} dest={{ destin_folder }}/{{ var_folder }} mode=0555
+  copy: src={{ item }} dest={{ destin_folder }} mode=0555
   loop:
     - "vagrant_2.2.19_x86_64.deb"
-    - "Vagrantfile"
 
 - name: Install Vagrant
-  command: apt install {{ destin_folder }}/{{ var_folder }}/vagrant_2.2.19_x86_64.deb
+  command: apt install {{ destin_folder }}/vagrant_2.2.19_x86_64.deb
 
-- name: New rules
-  command: chown -R {{ user_name }}:{{ user_name }} {{ destin_folder }}/{{ var_folder }}
+#- name: New rules
+#  command: chown -R {{ user_name }}:{{ user_name }} {{ destin_folder }}/{{ var_folder }}
 
 - name: In Folder
-  command: chdir={{ destin_folder }}/{{ var_folder }} vagrant up  
+  command: chdir={{ destin_folder }} vagrant up  
   become: False   
   become_user: dmitriy
